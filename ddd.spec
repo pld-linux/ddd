@@ -1,8 +1,9 @@
+%include	/usr/lib/rpm/macros.python
 Summary:	X interface to the GDB, DBX and XDB debuggers
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB
 Name:		ddd
 Version:	3.3.1
-Release:	9
+Release:	10
 License:	GPL
 Group:		Development/Debuggers
 Group(de):	Entwicklung/Debugger
@@ -19,14 +20,13 @@ BuildRequires:	XFree86-devel
 BuildRequires:	motif-devel
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	libstdc++-devel
-BuildRequires:	python
+BuildRequires:	python >= 2.2
 BuildRequires:	texinfo
 BuildRequires:	automake
 BuildRequires:	rpm-pythonprov
 Requires:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%include /usr/lib/rpm/macros.python
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
