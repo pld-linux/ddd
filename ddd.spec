@@ -16,6 +16,7 @@ BuildRequires:	xpm-devel
 BuildRequires:	lesstif-devel
 BuildRequires:	ncurses-devel
 BuildRequires:	libstdc++-devel
+Requires:	gdb
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %define		_prefix		/usr/X11R6
