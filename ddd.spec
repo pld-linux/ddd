@@ -48,7 +48,7 @@ s± w postaci graficznej. Proste klikniêcie mysz± pozwala na przegl±danie
 zawarto¶ci struktur (aktualizowane za ka¿dym razem gdy program siê zatrzyma).
 Inne mo¿liwo¶ci DDD to: mo¿liwo¶æ debugowania programów napisanych w C, C++,
 Ada, Fortran, Java, Pascal, Modula-2, or Modula-2; debugowanie na poziomie
-maszyny; hypertekstowa nawigacja po ¼ród³ach; brekpoin, backtrace i emulator
+maszyny; hypertekstowa nawigacja po ¼ród³ach; breakpoint, backtrace i emulator
 okna historii; mo¿liwo¶æ ustawiania preferencji; uruchamianie programów w oknie
 terminala; debugowanie na zdalnych serwerach; podrêcznik on-line; interaktywna
 pomoc; linia poleceñ GDB/DBX/XDB z pe³n± edycj±, histori± i wyszukiwaniem.
