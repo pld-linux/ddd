@@ -16,6 +16,7 @@ Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}-python.desktop
 Patch0:		%{name}-DESTDIR.patch
+Patch1:		%{name}-ptrace.patch
 Icon:		ddd.xpm
 URL:		http://www.gnu.org/software/ddd/
 BuildRequires:	XFree86-devel
@@ -81,6 +82,7 @@ Data Display Debugger - debugger pythona.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 automake -a -c
