@@ -88,7 +88,7 @@ Data Display Debugger - debugger pythona.
 automake -a -c
 %configure \
 	--with-motif
-%{__make} CXXOPT="-DNDEBUG %{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS}"
+%{__make} CXXOPT="-DNDEBUG %{rpmcflags}"
 %python_compile
 %python_compile_opt 
 
