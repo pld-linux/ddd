@@ -1,6 +1,8 @@
 %include	/usr/lib/rpm/macros.python
 Summary:	X interface to the GDB, DBX and XDB debuggers
+Summary(ja):	GDB,DBX,Ladebug,JDB,Perl,Python¤Î¥°¥é¥Õ¥£¥«¥ë¥Ç¥Ð¥Ã¥¬¤Î¥Õ¥í¥ó¥È¥¨¥ó¥É
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB
+Summary(zh_CN):	Í¼ÐÎ»¯µÄ³ÌÐòµ÷ÊÔÆ÷Ç°¶Ë;ÈçGDB,DBX,Ladebug,JDB,Perl,Python
 Name:		ddd
 Version:	3.3.1
 Release:	15
@@ -48,6 +50,13 @@ help on the Motif user interface; GDB/DBX/XDB command-line interface
 with full editing, history, search, and completion capabilities. DDD
 has been designed to compete with well-known commercial debuggers
 
+%description -l ja
+DDD¤Ï¡¢GDB,DBX,WDB,Ladebug,JDB,XDB,Perl¥Ç¥Ð¥Ã¥¬¡¢¤Þ¤¿¤ÏPython¥Ç¥Ð¥Ã¥¬
+¤Î¤è¤¦¤Ê¥³¥Þ¥ó¥É¥é¥¤¥ó·¿¥Ç¥Ð¥Ã¥¬¤ò¥°¥é¥Õ¥£¥«¥ë·¿¤Î¥Ç¥Ð¥Ã¥¬¤ËÊÑ¿È¤µ¤»¤ë
+¥Õ¥í¥ó¥È¥¨¥ó¥É¤Ç¤¹¡£¥½¡¼¥¹¥³¡¼¥É¤Î»²¾ÈÅù¤Î¤è¤¦¤Ê"ÄÌ¾ï"¤Î¥Õ¥í¥ó¥È¥¨¥ó¥É
+¤Îµ¡Ç½¤Î¤ß¤Ê¤é¤º¡¢DDD¤Ï¥Ç¡¼¥¿¹½Â¤¤ò¥°¥é¥Õ¤È¤·¤ÆÉ½¼¨¤¹¤ë¡¢²ñÏÃ¼°¥°¥é¥Õ
+¥£¥«¥ë¥Ç¡¼¥¿É½¼¨¤¹¤ë¤³¤È¤ÇÍ­Ì¾¤Ë¤Ê¤ê¤Þ¤·¤¿¡£
+ 
 %description -l pl
 Data Display Debugger (DDD) jest typowym graficznym interfejsem do
 GDB, DBX, i XDB - popularnych UNIXowych debuggerów. Poza
