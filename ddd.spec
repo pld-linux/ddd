@@ -1,8 +1,3 @@
-
-%define python_sitepkgsdir %(echo `python -c "import sys; print (sys.prefix + '/lib/python' + sys.version[:3] + '/site-packages/')"`)
-%define python_compile_opt python -O -c "import compileall; compileall.compile_dir('pydb')"
-%define python_compile python -c "import compileall; compileall.compile_dir('pydb')"
-
 Summary:	X interface to the GDB, DBX and XDB debuggers
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB
 Name:		ddd
@@ -27,8 +22,11 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	python
 BuildRequires:	texinfo
 BuildRequires:	automake
+BuildRequires:	rpm-pythonprov
 Requires:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%include /usr/lib/rpm/macros.python
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -74,6 +72,7 @@ Group:		Development/Debuggers
 Group(de):	Entwicklung/Debugger
 Group(pl):	Programowanie/Odpluskwiacze
 Requires:	%{name} = %{version}
+%requires_eq	python
 
 %description python
 Data Display Debugger - python debugger.
@@ -92,19 +91,19 @@ automake -a -c
 %configure2_13 \
 	--with-motif
 %{__make} CXXOPT="-DNDEBUG %{rpmcflags}"
-%python_compile
-%python_compile_opt 
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{python_sitepkgsdir} \
+install -d $RPM_BUILD_ROOT%{py_sitedir} \
 	$RPM_BUILD_ROOT%{_libdir}/X11/app-defaults \
 	$RPM_BUILD_ROOT%{_applnkdir}/Development
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT install 
 
 install pydb/pydb.py $RPM_BUILD_ROOT%{_bindir}/pydb
-install pydb/{pydbcmd,pydbsupt}.py[co] $RPM_BUILD_ROOT%{python_sitepkgsdir}
+install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT%{py_sitedir}
+%py_comp $RPM_BUILD_ROOT%{py_sitedir}
+%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 
 install ddd/Ddd $RPM_BUILD_ROOT%{_libdir}/X11/app-defaults
 
@@ -136,4 +135,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_applnkdir}/Development/ddd-python.desktop
 %attr(755,root,root) %{_bindir}/pydb
-%{python_sitepkgsdir}/*
+%{py_sitedir}/*.py?
