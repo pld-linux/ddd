@@ -3,13 +3,13 @@ Summary(ja):	GDB,DBX,Ladebug,JDB,Perl,Pythonのグラフィカルデバッガのフロントエン
 Summary(pl):	Interfejs X do debuger體 GDB, DBX i XDB
 Summary(zh_CN):	图形化的程序调试器前端;如GDB,DBX,Ladebug,JDB,Perl,Python
 Name:		ddd
-Version:	3.3.10
-Release:	2
+Version:	3.3.11
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Development/Debuggers
 Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
-# Source0-md5:	a10a3b55455cce8073cf2f8db01ba1a1
+# Source0-md5:	f19437ebfdb5f2667d6de30f700dd319
 Source1:	%{name}.desktop
 Source2:	%{name}-python.desktop
 Source3:	http://art.gnome.org/images/icons/other/Debugger.png
