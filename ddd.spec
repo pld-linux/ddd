@@ -83,7 +83,7 @@ install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT/usr/lib/python1.5
 
 install ddd/Ddd $RPM_BUILD_ROOT%{_libdir}/X11/app-defaults
 
-install %{SOURCE1} %{SOURCE2} $RPM_BUILD_ROOT/etc/X11/applnk/Development
+install %{SOURCE1} %{SOURCE2} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/Development
 
 gzip -9nf ANNOUNCE BUGS ChangeLog NEWS* OPENBUGS PROBLEMS README TIPS \
 	TODO $RPM_BUILD_ROOT%{_mandir}/man1/*
@@ -94,13 +94,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {ANNOUNCE,BUGS,ChangeLog,NEWS*,OPENBUGS,PROBLEMS,README,TIPS,TODO}.gz
 %doc doc/sample.dddinit
-/etc/X11/applnk/Development/ddd.desktop
+/usr/X11R6/share/applnk/Development/ddd.desktop
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/X11/app-defaults/Ddd
 %{_mandir}/man1/*
 
 %files python
 %defattr(644,root,root,755)
-/etc/X11/applnk/Development/ddd-python.desktop
+/usr/X11R6/share/applnk/Development/ddd-python.desktop
 %attr(755,root,root) %{_bindir}/pydb
 /usr/lib/python*/*
