@@ -55,7 +55,7 @@ install -d $RPM_BUILD_ROOT/{etc/X11/wmconfig,usr/{lib/python-1.5,X11R6/lib/X11/a
 make install prefix=$RPM_BUILD_ROOT/usr/X11R6
 
 install pydb/pydb.py $RPM_BUILD_ROOT/usr/X11R6/bin
-install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT/usr/lib/python-1.5
+install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT%{_libdir}/python-1.5
 
 install ddd/Ddd $RPM_BUILD_ROOT/usr/X11R6/lib/X11/app-defaults
 gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/man/man1/*
@@ -91,7 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644, root, root, 755)
 /etc/X11/wmconfig/ddd-python
 %attr(755,root,root) /usr/X11R6/bin/pydb.py
-/usr/lib/python*/*
+%{_libdir}/python*/*
 
 %changelog
 * Sun Mar 21 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
