@@ -1,0 +1,17 @@
+diff -Nru ddd-3.3.7.orig/ddd/session.C ddd-3.3.7/ddd/session.C
+--- ddd-3.3.7.orig/ddd/session.C	2003-05-24 17:27:11.000000000 +0200
++++ ddd-3.3.7/ddd/session.C	2003-11-09 09:28:03.000000000 +0100
+@@ -137,8 +137,11 @@
+     const char *ddd_state = getenv(DDD_NAME "_STATE");
+     if (ddd_state != 0)
+ 	return ddd_state;
+-    else
+-	return string(gethome()) + "/." ddd_NAME;
++    else {
++      char *home_etc = getenv("HOME_ETC");
++			if (home_etc != NULL) return string(home_etc) + "/." ddd_NAME;
++	  return string(gethome()) + "/." ddd_NAME;
++  }
+ }
+ 
+ static string session_base_dir()
