@@ -7,6 +7,8 @@ Release:	10
 License:	GPL
 Group:		Development/Debuggers
 Group(de):	Entwicklung/Debugger
+Group(es):	Desarrollo/Depuradores
+Group(fr):	Développement/Debuggers
 Group(pl):	Programowanie/Odpluskwiacze
 Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
@@ -50,26 +52,28 @@ with full editing, history, search, and completion capabilities. DDD
 has been designed to compete with well-known commercial debuggers
 
 %description -l pl
-Data Display Debugger (DDD) jest typowym graficznym interfejsem do GDB,
-DBX, i XDB - popularnych UNIXowych debuggerów. Poza ``klasycznymi''
-mo¿liwo¶ciami interfejsów graficznych takich jak przegl±danie kodów
-¼ród³owych DDD dostarcza graficznych narzêdzi, gdzie struktury
-wy¶wietlane s± w postaci graficznej. Proste klikniêcie mysz± pozwala
-na przegl±danie zawarto¶ci struktur (aktualizowane za ka¿dym razem gdy
-program siê zatrzyma). Inne mo¿liwo¶ci DDD to: mo¿liwo¶æ debugowania
-programów napisanych w C, C++, Ada, Fortran, Java, Pascal, Modula-2,
-or Modula-2; debugowanie na poziomie maszyny; hypertekstowa nawigacja
-po ¼ród³ach; breakpoint, backtrace i emulator okna historii; mo¿liwo¶æ
-ustawiania preferencji; uruchamianie programów w oknie terminala;
-debugowanie na zdalnych serwerach; podrêcznik on-line; interaktywna
-pomoc; linia poleceñ GDB/DBX/XDB z pe³n± edycj±, histori± i
-wyszukiwaniem.
+Data Display Debugger (DDD) jest typowym graficznym interfejsem do
+GDB, DBX, i XDB - popularnych UNIXowych debuggerów. Poza
+``klasycznymi'' mo¿liwo¶ciami interfejsów graficznych takich jak
+przegl±danie kodów ¼ród³owych DDD dostarcza graficznych narzêdzi,
+gdzie struktury wy¶wietlane s± w postaci graficznej. Proste klikniêcie
+mysz± pozwala na przegl±danie zawarto¶ci struktur (aktualizowane za
+ka¿dym razem gdy program siê zatrzyma). Inne mo¿liwo¶ci DDD to:
+mo¿liwo¶æ debugowania programów napisanych w C, C++, Ada, Fortran,
+Java, Pascal, Modula-2, or Modula-2; debugowanie na poziomie maszyny;
+hypertekstowa nawigacja po ¼ród³ach; breakpoint, backtrace i emulator
+okna historii; mo¿liwo¶æ ustawiania preferencji; uruchamianie
+programów w oknie terminala; debugowanie na zdalnych serwerach;
+podrêcznik on-line; interaktywna pomoc; linia poleceñ GDB/DBX/XDB z
+pe³n± edycj±, histori± i wyszukiwaniem.
 
 %package python
 Summary:	X interface to the GDB, DBX and XDB debuggers - The python debugger
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB - debugger pythona
 Group:		Development/Debuggers
 Group(de):	Entwicklung/Debugger
+Group(es):	Desarrollo/Depuradores
+Group(fr):	Développement/Debuggers
 Group(pl):	Programowanie/Odpluskwiacze
 Requires:	%{name} = %{version}
 %requires_eq	python
