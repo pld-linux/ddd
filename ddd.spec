@@ -11,10 +11,15 @@ Source1:	ddd.desktop
 Source2:	ddd-python.desktop
 Icon:		ddd.xpm
 URL:		http://www.cs.tu-bs.de/softech/ddd/
+BuildRequires:	XFree86-devel
+BuildRequires:	xpm-devel
+BuildRequires:	lesstif-devel
+BuildRequires:	ncurses-devel
+BuildRequires:	libstdc++-devel
 Buildroot:	/tmp/%{name}-%{version}-root
 
-%define		_prefix	/usr/X11R6
-%define		_mandir	/usr/X11R6/man
+%define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
 
 %description
 The Data Display Debugger (DDD) is a common graphical user interface for
@@ -71,7 +76,10 @@ make CXXOPT="-DNDEBUG $RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{etc/X11/applnk/Development,usr/lib/python1.5,%{_libdir}/X11/app-defaults}
+install -d $RPM_BUILD_ROOT/usr/lib/python1.5 \
+	$RPM_BUILD_ROOT%{_libdir}/X11/app-defaults \
+	$RPM_BUILD_ROOT%{_datadir}/applnk/Development 
+
 
 make install prefix=$RPM_BUILD_ROOT%{_prefix} \
 	mandir=$RPM_BUILD_ROOT%{_mandir} \
@@ -83,7 +91,7 @@ install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT/usr/lib/python1.5
 
 install ddd/Ddd $RPM_BUILD_ROOT%{_libdir}/X11/app-defaults
 
-install %{SOURCE1} %{SOURCE2} $RPM_BUILD_ROOT/usr/X11R6/share/applnk/Development
+install %{SOURCE1} %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/applnk/Development
 
 gzip -9nf ANNOUNCE BUGS ChangeLog NEWS* OPENBUGS PROBLEMS README TIPS \
 	TODO $RPM_BUILD_ROOT%{_mandir}/man1/*
@@ -94,13 +102,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {ANNOUNCE,BUGS,ChangeLog,NEWS*,OPENBUGS,PROBLEMS,README,TIPS,TODO}.gz
 %doc doc/sample.dddinit
-/usr/X11R6/share/applnk/Development/ddd.desktop
+%{_datadir}/applnk/Development/ddd.desktop
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/X11/app-defaults/Ddd
 %{_mandir}/man1/*
 
 %files python
 %defattr(644,root,root,755)
-/usr/X11R6/share/applnk/Development/ddd-python.desktop
+%{_datadir}/applnk/Development/ddd-python.desktop
 %attr(755,root,root) %{_bindir}/pydb
 /usr/lib/python*/*
