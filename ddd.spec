@@ -73,7 +73,7 @@ Requires:	%{name} = %{version}
 %description python
 Data Display Debugger - python debugger.
 
-%description -l pl python
+%description python -l pl
 Data Display Debugger - debugger pythona.
 
 %prep
@@ -94,7 +94,7 @@ install -d $RPM_BUILD_ROOT%{py_sitedir} \
 	$RPM_BUILD_ROOT%{_libdir}/X11/app-defaults \
 	$RPM_BUILD_ROOT%{_applnkdir}/Development
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT install 
+%{__make} DESTDIR=$RPM_BUILD_ROOT install
 
 install pydb/pydb.py $RPM_BUILD_ROOT%{_bindir}/pydb
 install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT%{py_sitedir}
