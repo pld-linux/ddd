@@ -54,7 +54,7 @@ DDD反﹜GDB,DBX,WDB,Ladebug,JDB,XDB,Perl犯田永布﹜引凶反Python犯田永布
 白伕件玄巨件玉匹允﹝末□旦戊□玉及輔寰羈及方丹卅"騷橘"及白伕件玄巨件玉
 及窗Х及心卅日內﹜DDD反犯□正厭瞻毛弘仿白午仄化刓憎允月﹜莘狪摯弘仿白
 奴市伙犯□正刓憎允月仇午匹肣抩卞卅曰引仄凶﹝
- 
+
 %description -l pl
 Data Display Debugger (DDD) jest typowym graficznym interfejsem do
 GDB, DBX, i XDB - popularnych UNIXowych debugger闚. Poza
