@@ -1,6 +1,6 @@
 Summary:     X interface to the GDB, DBX and XDB debuggers
 Name:        ddd
-Version:     3.1
+Version:     3.1.1
 Release:     1
 Source0:     ftp://ftp.ips.cs.tu-bs.de/pub/local/softech/ddd/src/%{name}-%{version}.tar.gz
 Copyright:   GPL
