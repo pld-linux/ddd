@@ -1,0 +1,30 @@
+--- ddd-3.1.5/ddd/options.C.tim	Thu Aug 19 16:37:31 1999
++++ ddd-3.1.5/ddd/options.C	Thu Aug 19 16:39:14 1999
+@@ -92,7 +92,27 @@
+ #if HAVE_PTRACE
+ extern "C" {
+ #if HAVE_SYS_PTRACE_H
++
++#if defined(__sparc__)
++#undef PTRACE_GETREGS  /* XXX noise from <sys/ptrace.h> */
++#undef PTRACE_SETREGS
++#undef PTRACE_GETFPREGS
++#undef PTRACE_SETFPREGS
++#undef PT_ATTACH
++#undef PT_DETACH
++#endif /* __sparc__ */
++
++
++
+ #include <sys/ptrace.h>
++
++#if defined(__sparc__)
++#undef PT_ATTACH
++#undef PT_DETACH
++#define        PT_ATTACH PTRACE_SUNATTACH      /* XXX reestablish "nm.h" vals */
++#define        PT_DETACH PTRACE_SUNDETACH
++#endif /* __sparc__ */
++
+ #endif
+ #if !HAVE_PTRACE_DECL
+ extern int ptrace(int request, int pid, int addr, int data);
