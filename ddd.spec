@@ -100,5 +100,5 @@ rm -rf $RPM_BUILD_ROOT
 - added package Icon,
 - added python subpackage,
 - removed Packager field (this must be placed in private ~/.rpmrc),
-- added %attr and %defattr macros in %files (allow build package from
+- added %attr and %defattr macros in %files (allows build package from
   non-root account).
