@@ -1,0 +1,30 @@
+diff -Nur ddd-3.3.1.orig/ddd/ddd-themes.texi ddd-3.3.1/ddd/ddd-themes.texi
+--- ddd-3.3.1.orig/ddd/ddd-themes.texi	Thu Apr 26 13:08:07 2001
++++ ddd-3.3.1/ddd/ddd-themes.texi	Sat Aug  4 18:08:19 2001
+@@ -83,9 +83,9 @@
+ @finalout
+ 
+ @c Info Dir settings
+-@dircategory Miscellaneous
++@dircategory Miscellaneous:
+ @direntry
+-* DDD-Themes: (ddd-themes).       Writing DDD Themes.
++* DDD-Themes: (ddd-themes).		Writing DDD Themes.
+ @end direntry
+ @c %**end of header
+ 
+diff -Nur ddd-3.3.1.orig/ddd/ddd.texi ddd-3.3.1/ddd/ddd.texi
+--- ddd-3.3.1.orig/ddd/ddd.texi	Fri Feb  2 15:59:19 2001
++++ ddd-3.3.1/ddd/ddd.texi	Sat Aug  4 18:08:04 2001
+@@ -94,9 +94,9 @@
+ @finalout
+ 
+ @c Info Dir settings
+-@dircategory Miscellaneous
++@dircategory Programming tools:
+ @direntry
+-* DDD: (ddd).                     The Data Display Debugger.
++* DDD: (ddd).				The Data Display Debugger.
+ @end direntry
+ @c %**end of header
+ 

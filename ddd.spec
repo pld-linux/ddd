@@ -7,7 +7,7 @@ Summary:	X interface to the GDB, DBX and XDB debuggers
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB
 Name:		ddd
 Version:	3.3.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Debuggers
 Group(de):	Entwicklung/Debugger
@@ -17,6 +17,7 @@ Source1:	%{name}.desktop
 Source2:	%{name}-python.desktop
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-ptrace.patch
+Patch2:		%{name}-info.patch
 Icon:		ddd.xpm
 URL:		http://www.gnu.org/software/ddd/
 BuildRequires:	XFree86-devel
@@ -50,7 +51,7 @@ with full editing, history, search, and completion capabilities. DDD
 has been designed to compete with well-known commercial debuggers
 
 %description -l pl
-Data Display Debugger (DDD) jest typowm graficznym interfejsem do GDB,
+Data Display Debugger (DDD) jest typowym graficznym interfejsem do GDB,
 DBX, i XDB - popularnych UNIXowych debuggerów. Poza ``klasycznymi''
 mo¿liwo¶ciami interfejsów graficznych takich jak przegl±danie kodów
 ¼ród³owych DDD dostarcza graficznych narzêdzi, gdzie struktury
@@ -67,7 +68,7 @@ wyszukiwaniem.
 
 %package python
 Summary:	X interface to the GDB, DBX and XDB debuggers - The python debugger
-Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB - debuger pythona
+Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB - debugger pythona
 Group:		Development/Debuggers
 Group(de):	Entwicklung/Debugger
 Group(pl):	Programowanie/Odpluskwiacze
@@ -83,10 +84,11 @@ Data Display Debugger - debugger pythona.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 automake -a -c
-%configure \
+%configure2_13 \
 	--with-motif
 %{__make} CXXOPT="-DNDEBUG %{rpmcflags}"
 %python_compile
