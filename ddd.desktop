@@ -43,4 +43,5 @@ Icon=ddd.png
 Terminal=false
 Type=Application
 Encoding=UTF-8
+Categories=Development;Debugger;
 # vi: encoding=utf-8
