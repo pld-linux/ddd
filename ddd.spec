@@ -10,11 +10,12 @@ Version:	3.3
 Release:	1
 License:	GPL
 Group:		Development/Debuggers
+Group(de):	Entwicklung/Debugger
 Group(pl):	Programowanie/Odpluskwiacze
 Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
-Source1:	ddd.desktop
-Source2:	ddd-python.desktop
-Patch0:		ddd-DESTDIR.patch
+Source1:	%{name}.desktop
+Source2:	%{name}-python.desktop
+Patch0:		%{name}-DESTDIR.patch
 Icon:		ddd.xpm
 URL:		http://www.gnu.org/software/ddd/
 BuildRequires:	XFree86-devel
@@ -67,6 +68,7 @@ wyszukiwaniem.
 Summary:	X interface to the GDB, DBX and XDB debuggers - The python debugger
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB - debuger pythona
 Group:		Development/Debuggers
+Group(de):	Entwicklung/Debugger
 Group(pl):	Programowanie/Odpluskwiacze
 Requires:	%{name} = %{version}
 
@@ -84,7 +86,7 @@ Data Display Debugger - debugger pythona.
 automake -a -c
 %configure \
 	--with-motif
-%{__make} CXXOPT="-DNDEBUG $RPM_OPT_FLAGS"
+%{__make} CXXOPT="-DNDEBUG %{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS}"
 %python_compile
 %python_compile_opt 
 
