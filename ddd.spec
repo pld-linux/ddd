@@ -16,7 +16,6 @@ Patch0:		ddd-DESTDIR.patch
 Icon:		ddd.xpm
 URL:		http://www.gnu.org/software/ddd/
 BuildRequires:	XFree86-devel
-BuildRequires:	xpm-devel
 BuildRequires:	motif-devel
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	libstdc++-devel
