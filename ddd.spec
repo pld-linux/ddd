@@ -105,7 +105,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc {ANNOUNCE,BUGS,ChangeLog,NEWS*,OPENBUGS,PROBLEMS,README,TIPS,TODO}.gz
 %doc doc/sample.dddinit
 %{_applnkdir}/Development/ddd.desktop
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/ddd
 %{_libdir}/X11/app-defaults/Ddd
 %{_mandir}/man1/*
 
