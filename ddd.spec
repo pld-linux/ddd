@@ -1,11 +1,12 @@
 Summary:	X interface to the GDB, DBX and XDB debuggers
 Name:		ddd
 Version:	3.1.4
-Release:	1
-Source:		ftp://ftp.ips.cs.tu-bs.de/pub/local/softech/ddd/src/%{name}-%{version}.tar.gz
+Release:	2
 Copyright:	GPL
 Group:		Development/Debuggers
 Group(pl):	Programowanie/Odpluskwiacze
+Source:		ftp://ftp.ips.cs.tu-bs.de/pub/local/softech/ddd/src/%{name}-%{version}.tar.gz
+Patch:		ddd-pty.patch
 Icon:		ddd.xpm
 URL:		http://www.cs.tu-bs.de/softech/ddd/
 Buildroot:	/tmp/%{name}-%{version}-root
@@ -38,6 +39,7 @@ Data Display Debugger - python debugger.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
@@ -77,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644, root, root, 755)
-%doc DOCS ANNOUNCE BUGS ChangeLog* NEWS* OPENBUGS PROBLEMS README TIPS TODO doc/sample.dddinit
+%doc ANNOUNCE BUGS ChangeLog NEWS* OPENBUGS PROBLEMS README TIPS TODO doc/sample.dddinit
 /etc/X11/wmconfig/ddd
 %attr(755, root, root) /usr/X11R6/bin/*
 
