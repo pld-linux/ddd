@@ -5,7 +5,7 @@ Summary(pl):	Interfejs X do debuger體 GDB, DBX i XDB
 Summary(zh_CN):	图形化的程序调试器前端;如GDB,DBX,Ladebug,JDB,Perl,Python
 Name:		ddd
 Version:	3.3.9
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL
 Group:		Development/Debuggers
