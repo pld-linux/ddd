@@ -3,7 +3,7 @@ Summary:	X interface to the GDB, DBX and XDB debuggers
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB
 Name:		ddd
 Version:	3.3.1
-Release:	10
+Release:	11
 License:	GPL
 Group:		Development/Debuggers
 Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
@@ -12,6 +12,7 @@ Source2:	%{name}-python.desktop
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-ptrace.patch
 Patch2:		%{name}-info.patch
+Patch3:		%{name}-gcc3.patch
 Icon:		ddd.xpm
 URL:		http://www.gnu.org/software/ddd/
 BuildRequires:	XFree86-devel
@@ -81,11 +82,13 @@ Data Display Debugger - debugger pythona.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 automake -a -c -f
 %configure2_13 \
 	--with-motif
+
 %{__make} CXXOPT="-DNDEBUG %{rpmcflags}"
 
 %install
