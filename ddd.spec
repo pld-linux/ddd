@@ -28,8 +28,6 @@ BuildRequires:	rpm-pythonprov
 Requires:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 The Data Display Debugger (DDD) is a common graphical user interface
