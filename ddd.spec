@@ -78,7 +78,7 @@ Data Display Debugger - debugger pythona.
 LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--with-motif
-make CXXOPT="-DNDEBUG $RPM_OPT_FLAGS"
+%{__make} CXXOPT="-DNDEBUG $RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -86,7 +86,7 @@ install -d $RPM_BUILD_ROOT%{_libdir}/python1.5 \
 	$RPM_BUILD_ROOT%{_libdir}/X11/app-defaults \
 	$RPM_BUILD_ROOT%{_applnkdir}/Development 
 
-make DESTDIR=$RPM_BUILD_ROOT install 
+%{__make} DESTDIR=$RPM_BUILD_ROOT install 
 
 install pydb/pydb.py $RPM_BUILD_ROOT%{_bindir}/pydb
 install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT%{_libdir}/python1.5
