@@ -5,7 +5,7 @@ Summary:	X interface to the GDB, DBX and XDB debuggers
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB
 Name:		ddd
 Version:	3.2.1
-Release:	3
+Release:	4
 License:	GPL
 Group:		Development/Debuggers
 Group(pl):	Programowanie/Odpluskwiacze
@@ -19,6 +19,7 @@ BuildRequires:	XFree86-devel
 BuildRequires:	motif-devel
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	libstdc++-devel
+BuildRequires:	python
 Requires:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
