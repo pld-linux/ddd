@@ -94,9 +94,11 @@ Data Display Debugger - debugger pythona.
 %patch3 -p1
 
 %build
+%{__aclocal}
 %{__automake}
 %configure2_13 \
-	--with-motif
+	--with-motif \
+	--with-readline-libraries=%{_libdir}
 
 %{__make} CXXOPT="-DNDEBUG %{rpmcflags}"
 
