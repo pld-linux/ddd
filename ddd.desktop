@@ -1,6 +1,8 @@
 [Desktop Entry]
 Name=DDD
-Comment=Data Display Debuger
+Comment=Data Display Debugger
+Comment[pl]=Debuger pokazujący dane (DDD)
 Exec=/usr/X11R6/bin/ddd 
 Terminal=0
 Type=Application
+# vi: encoding=utf-8

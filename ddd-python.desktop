@@ -1,6 +1,9 @@
 [Desktop Entry]
 Name=DDD for python
+Name[pl]=DDD dla pythona
 Comment=Data Display Debuger - python
+Comment[pl]=Debuger pokazujący dane (DDD) - dla pythona
 Exec=/usr/X11R6/bin/ddd --pydb 
 Terminal=0
 Type=Application
+# vi: encoding=utf-8
