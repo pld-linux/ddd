@@ -21,7 +21,7 @@ Patch3:		%{name}-am185.patch
 URL:		http://www.gnu.org/software/ddd/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf >= 2.59
-BuildRequires:	automake >= 1.9
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	bison
 BuildRequires:	elfutils-devel
 BuildRequires:	flex
