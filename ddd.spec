@@ -1,13 +1,14 @@
 Summary:	X interface to the GDB, DBX and XDB debuggers
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB
 Name:		ddd
-Version:	3.1.5
+Version:	3.1.6
 Release:	1
 Copyright:	GPL
 Group:		Development/Debuggers
 Group(pl):	Programowanie/Odpluskwiacze
-Source:		ftp://ftp.ips.cs.tu-bs.de/pub/local/softech/ddd/src/%{name}-%{version}.tar.gz
-Patch:		ddd-pty.patch
+Source0:	ftp://ftp.ips.cs.tu-bs.de/pub/local/softech/ddd/src/%{name}-%{version}.tar.gz
+Source1:	ddd.desktop
+Source2:	ddd-python.desktop
 Icon:		ddd.xpm
 URL:		http://www.cs.tu-bs.de/softech/ddd/
 Buildroot:	/tmp/%{name}-%{version}-root
@@ -61,15 +62,16 @@ Data Display Debugger - debugger pythona.
 
 %prep
 %setup -q
-#%patch -p1
 
 %build
-%configure --with-motif
+LDFLAGS="-s"; export LDFLAGS
+%configure \
+	--with-motif
 make CXXOPT="-DNDEBUG $RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{etc/X11/wmconfig,usr/lib/python1.5,%{_libdir}/X11/app-defaults}
+install -d $RPM_BUILD_ROOT/{etc/X11/applnk/Development,usr/lib/python1.5,%{_libdir}/X11/app-defaults}
 
 make install prefix=$RPM_BUILD_ROOT%{_prefix} \
 	mandir=$RPM_BUILD_ROOT%{_mandir} \
@@ -81,19 +83,7 @@ install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT/usr/lib/python1.5
 
 install ddd/Ddd $RPM_BUILD_ROOT%{_libdir}/X11/app-defaults
 
-cat > $RPM_BUILD_ROOT/etc/X11/wmconfig/ddd <<EOF
-ddd name "DDD"
-ddd description "Data Display Debuger"
-ddd exec "/usr/X11R6/bin/ddd"
-ddd group "Development"
-EOF
-
-cat > $RPM_BUILD_ROOT/etc/X11/wmconfig/ddd-python <<EOF
-ddd name "DDD for python"
-ddd description "Data Display Debuger - python"
-ddd exec "/usr/X11R6/bin/ddd --pydb"
-ddd group "Development"
-EOF
+install %{SOURCE1} %{SOURCE2} $RPM_BUILD_ROOT/etc/X11/applnk/Development
 
 gzip -9nf ANNOUNCE BUGS ChangeLog NEWS* OPENBUGS PROBLEMS README TIPS \
 	TODO $RPM_BUILD_ROOT%{_mandir}/man1/*
@@ -104,13 +94,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {ANNOUNCE,BUGS,ChangeLog,NEWS*,OPENBUGS,PROBLEMS,README,TIPS,TODO}.gz
 %doc doc/sample.dddinit
-/etc/X11/wmconfig/ddd
+/etc/X11/applnk/Development/ddd.desktop
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/X11/app-defaults/Ddd
 %{_mandir}/man1/*
 
 %files python
 %defattr(644,root,root,755)
-/etc/X11/wmconfig/ddd-python
+/etc/X11/applnk/Development/ddd-python.desktop
 %attr(755,root,root) %{_bindir}/pydb
 /usr/lib/python*/*
