@@ -6,10 +6,10 @@ diff -urN ddd-3.3.7.orig/ddd/ddd.texi ddd-3.3.7/ddd/ddd.texi
  
  @c Info Dir settings
 -@dircategory Programming & development tools.
-+@dircategory Programming & development tools:
++@dircategory Programming tools:
  @direntry
 -* DDD: (ddd).                     The Data Display Debugger.
-+* DDD: (ddd).				The Data Display Debugger.
++* DDD: (ddd).				The Data Display Debugger
  @end direntry
  @c %**end of header
  
@@ -21,10 +21,10 @@ diff -urN ddd-3.3.7.orig/ddd/ddd-themes.texi ddd-3.3.7/ddd/ddd-themes.texi
  
  @c Info Dir settings
 -@dircategory Programming & development tools.
-+@dircategory Programming & development tools:
++@dircategory Programming tools:
  @direntry
 -* DDD-Themes: (ddd-themes).       Writing DDD Themes.
-+* DDD-Themes: (ddd-themes).		Writing DDD Themes.
++* DDD-Themes: (ddd-themes).		Writing DDD Themes
  @end direntry
  @c %**end of header
  
