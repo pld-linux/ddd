@@ -69,15 +69,15 @@ make CXXOPT="-DNDEBUG $RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{etc/X11/wmconfig,usr/lib/python-1.5,%{_libdir}/X11/app-defaults}
+install -d $RPM_BUILD_ROOT/{etc/X11/wmconfig,usr/lib/python1.5,%{_libdir}/X11/app-defaults}
 
 make install prefix=$RPM_BUILD_ROOT%{_prefix} \
 	mandir=$RPM_BUILD_ROOT%{_mandir} \
 	bindir=$RPM_BUILD_ROOT%{_bindir} \
 	libdir=$RPM_BUILD_ROOT%{_libdir}
 
-install pydb/pydb.py $RPM_BUILD_ROOT%{_bindir}
-install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT/usr/lib/python-1.5
+install pydb/pydb.py $RPM_BUILD_ROOT%{_bindir}/pydb
+install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT/usr/lib/python1.5
 
 install ddd/Ddd $RPM_BUILD_ROOT%{_libdir}/X11/app-defaults
 
@@ -112,5 +112,5 @@ rm -rf $RPM_BUILD_ROOT
 %files python
 %defattr(644,root,root,755)
 /etc/X11/wmconfig/ddd-python
-%attr(755,root,root) %{_bindir}/pydb.py
+%attr(755,root,root) %{_bindir}/pydb
 /usr/lib/python*/*
