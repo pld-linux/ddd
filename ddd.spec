@@ -119,7 +119,7 @@ install ddd/Ddd $RPM_BUILD_ROOT%{_libdir}/X11/app-defaults
 
 install %{SOURCE1} %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Development
 
-gzip -9nf ANNOUNCE BUGS NEWS* OPENBUGS PROBLEMS README TIPS
+mv doc/README README.doc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -132,7 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {ANNOUNCE,BUGS,NEWS*,OPENBUGS,PROBLEMS,README,TIPS}.gz
+%doc ANNOUNCE AUTHORS *BUGS INSTALL NEWS* PROBLEMS README* TIPS TODO doc/ddd.pdf
 %doc doc/sample.dddinit
 %{_applnkdir}/Development/ddd.desktop
 %attr(755,root,root) %{_bindir}/ddd
