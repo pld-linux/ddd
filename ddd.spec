@@ -20,16 +20,15 @@ Patch2:		%{name}-info.patch
 Patch3:		%{name}-gcc3.patch
 URL:		http://www.gnu.org/software/ddd/
 BuildRequires:	XFree86-devel
+BuildRequires:	automake
+BuildRequires:	libstdc++-devel
 BuildRequires:	motif-devel
 BuildRequires:	ncurses-devel >= 5.0
-BuildRequires:	libstdc++-devel
 BuildRequires:	python >= 2.2
-BuildRequires:	texinfo
-BuildRequires:	automake
 BuildRequires:	rpm-pythonprov
+BuildRequires:	texinfo
 Requires:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 The Data Display Debugger (DDD) is a common graphical user interface
@@ -107,7 +106,8 @@ install -d $RPM_BUILD_ROOT%{py_sitedir} \
 	$RPM_BUILD_ROOT%{_libdir}/X11/app-defaults \
 	$RPM_BUILD_ROOT{%{_applnkdir}/Development,%{_pixmapsdir}}
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install pydb/pydb.py $RPM_BUILD_ROOT%{_bindir}/pydb
 install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT%{py_sitedir}
