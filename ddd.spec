@@ -26,6 +26,7 @@ BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	libstdc++-devel
 BuildRequires:	python
 BuildRequires:	texinfo
+BuildRequires:	automake
 Requires:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
