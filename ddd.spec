@@ -1,13 +1,14 @@
-Summary:     X interface to the GDB, DBX and XDB debuggers
-Name:        ddd
-Version:     3.1.2
-Release:     1
-Source0:     ftp://ftp.ips.cs.tu-bs.de/pub/local/softech/ddd/src/%{name}-%{version}.tar.gz
-Copyright:   GPL
-Group:       Development/Debuggers
-Icon:        ddd.xpm
-URL:         http://www.cs.tu-bs.de/softech/ddd/
-Buildroot:   /tmp/%{name}-%{version}-root
+Summary:	X interface to the GDB, DBX and XDB debuggers
+Name:		ddd
+Version:	3.1.4
+Release:	1
+Source:		ftp://ftp.ips.cs.tu-bs.de/pub/local/softech/ddd/src/%{name}-%{version}.tar.gz
+Copyright:	GPL
+Group:		Development/Debuggers
+Group(pl):	Programowanie/Odpluskwiacze
+Icon:		ddd.xpm
+URL:		http://www.cs.tu-bs.de/softech/ddd/
+Buildroot:	/tmp/%{name}-%{version}-root
 
 %description
 The Data Display Debugger (DDD) is a common graphical user interface for
@@ -27,9 +28,10 @@ editing, history, search, and completion capabilities.  DDD has been
 designed to compete with well-known commercial debuggers
 
 %package python
-Summary:     X interface to the GDB, DBX and XDB debuggers - The python debugger
-Group:       Development/Debuggers
-Requires:    %{name} = %{version}
+Summary:	X interface to the GDB, DBX and XDB debuggers - The python debugger
+Group:		Development/Debuggers
+Group(pl):	Programowanie/Odpluskwiacze
+Requires:	%{name} = %{version}
 
 %description python
 Data Display Debugger - python debugger.
@@ -78,16 +80,23 @@ rm -rf $RPM_BUILD_ROOT
 %doc DOCS ANNOUNCE BUGS ChangeLog* NEWS* OPENBUGS PROBLEMS README TIPS TODO doc/sample.dddinit
 /etc/X11/wmconfig/ddd
 %attr(755, root, root) /usr/X11R6/bin/*
-%attr(644, root,  man) /usr/X11R6/man/man1/*
+
 /usr/X11R6/lib/X11/app-defaults/Ddd
+
+/usr/X11R6/man/man1/*
 
 %files python
 %defattr(644, root, root, 755)
 /etc/X11/wmconfig/ddd-python
-%attr(755, root, root) /usr/X11R6/bin/pydb.py
-/usr/lib/python-1.5/*
+%attr(755,root,root) /usr/X11R6/bin/pydb.py
+/usr/lib/python*/*
 
 %changelog
+* Sun Mar 21 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [3.1.4-1]
+- removed man group from man pages,
+- added Group(pl).
+
 * Wed Dec  2 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [3.1-1]
 - based on spec written by Alec Habig <habig@budoe.bu.edu>,
