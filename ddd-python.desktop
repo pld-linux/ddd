@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=DDD for python
+Comment=Data Display Debuger - python
+Exec=/usr/X11R6/bin/ddd --pydb &
+Terminal=0
+Type=Application

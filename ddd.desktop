@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=DDD
+Comment=Data Display Debuger
+Exec=/usr/X11R6/bin/ddd &
+Terminal=0
+Type=Application
