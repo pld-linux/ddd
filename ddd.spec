@@ -6,10 +6,6 @@ Version:	3.3.1
 Release:	10
 License:	GPL
 Group:		Development/Debuggers
-Group(de):	Entwicklung/Debugger
-Group(es):	Desarrollo/Depuradores
-Group(fr):	Développement/Debuggers
-Group(pl):	Programowanie/Odpluskwiacze
 Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}-python.desktop
@@ -71,10 +67,6 @@ pe³n± edycj±, histori± i wyszukiwaniem.
 Summary:	X interface to the GDB, DBX and XDB debuggers - The python debugger
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB - debugger pythona
 Group:		Development/Debuggers
-Group(de):	Entwicklung/Debugger
-Group(es):	Desarrollo/Depuradores
-Group(fr):	Développement/Debuggers
-Group(pl):	Programowanie/Odpluskwiacze
 Requires:	%{name} = %{version}
 %requires_eq	python
 
