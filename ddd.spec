@@ -83,7 +83,7 @@ Data Display Debugger - debugger pythona.
 %patch2 -p1
 
 %build
-automake -a -c
+automake -a -c -f
 %configure2_13 \
 	--with-motif
 %{__make} CXXOPT="-DNDEBUG %{rpmcflags}"
