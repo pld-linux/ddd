@@ -11,12 +11,11 @@ Group:		Development/Debuggers
 Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}-python.desktop
-Source3:	%{name}.png
+Source3:	http://art.gnome.org/images/icons/other/Debugger.png
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-ptrace.patch
 Patch2:		%{name}-info.patch
 Patch3:		%{name}-gcc3.patch
-Icon:		ddd.xpm
 URL:		http://www.gnu.org/software/ddd/
 BuildRequires:	XFree86-devel
 BuildRequires:	motif-devel
@@ -118,7 +117,7 @@ install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT%{py_sitedir}
 install ddd/Ddd $RPM_BUILD_ROOT%{_libdir}/X11/app-defaults
 
 install %{SOURCE1} %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Development
-install %{SOURCE3} $RPM_BUILD_ROOT%{_pixmapsdir}
+install %{SOURCE3} $RPM_BUILD_ROOT%{_pixmapsdir}/ddd.png
 
 mv doc/README README.doc
 
