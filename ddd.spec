@@ -92,24 +92,3 @@ rm -rf $RPM_BUILD_ROOT
 /etc/X11/wmconfig/ddd-python
 %attr(755,root,root) /usr/X11R6/bin/pydb.py
 %{_libdir}/python*/*
-
-%changelog
-* Sun Mar 21 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [3.1.4-1]
-- removed man group from man pages,
-- added Group(pl).
-
-* Wed Dec  2 1998 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [3.1-1]
-- based on spec written by Alec Habig <habig@budoe.bu.edu>,
-- only one package is now generated,
-- added -q %setup parameter,
-- added gziping man pages,
-- changed Buildroot to /tmp/%%{name}-%%{version}-root,
-- added using %%{name} and %%{version} in Source,
-- removeda all %post{un} scripts,
-- added package Icon,
-- added python subpackage,
-- removed Packager field (this must be placed in private ~/.rpmrc),
-- added %attr and %defattr macros in %files (allows build package from
-  non-root account).
