@@ -1,37 +1,25 @@
---- ddd-3.2.1/ddd/Makefile.in	Sat Feb 12 00:59:44 2000
-+++ ddd-3.2.1.orig/ddd/Makefile.in	Mon May 29 18:15:19 2000
-@@ -26,6 +26,7 @@
- # `http://www.gnu.org/software/ddd/',
- # or send a mail to the DDD developers <ddd@gnu.org>.
+diff -Nur ddd-3.2.98.orig/libiberty/Makefile.in ddd-3.2.98/libiberty/Makefile.in
+--- ddd-3.2.98.orig/libiberty/Makefile.in	Mon May 29 16:54:03 2000
++++ ddd-3.2.98/libiberty/Makefile.in	Tue Jan 23 01:53:29 2001
+@@ -152,15 +152,15 @@
+ install: install_to_$(INSTALL_DEST) install-subdir
  
-+DESTDIR = 
+ install_to_libdir: all
+-	$(INSTALL_DATA) $(TARGETLIB) $(libdir)$(MULTISUBDIR)/$(TARGETLIB)n
+-	( cd $(libdir)$(MULTISUBDIR) ; $(RANLIB) $(TARGETLIB)n )
+-	mv -f $(libdir)$(MULTISUBDIR)/$(TARGETLIB)n $(libdir)$(MULTISUBDIR)/$(TARGETLIB)
++	$(INSTALL_DATA) $(TARGETLIB) $(DESTDIR)$(libdir)$(MULTISUBDIR)/$(TARGETLIB)n
++	( cd $(DESTDIR)$(libdir)$(MULTISUBDIR) ; $(RANLIB) $(TARGETLIB)n )
++	mv -f $(DESTDIR)$(libdir)$(MULTISUBDIR)/$(TARGETLIB)n $(DESTDIR)$(libdir)$(MULTISUBDIR)/$(TARGETLIB)
+ 	@$(MULTIDO) $(FLAGS_TO_PASS) multi-do DO=install
  
- ### CUSTOMIZATION SECTION --- Please check the settings below.
- # Typical values are enclosed in ().
-@@ -34,21 +35,21 @@
+ install_to_tooldir: all
+-	$(INSTALL_DATA) $(TARGETLIB) $(tooldir)/lib$(MULTISUBDIR)/$(TARGETLIB)n
+-	( cd $(tooldir)/lib$(MULTISUBDIR) ; $(RANLIB) $(TARGETLIB)n )
+-	mv -f $(tooldir)/lib$(MULTISUBDIR)/$(TARGETLIB)n $(tooldir)/lib$(MULTISUBDIR)/$(TARGETLIB)
++	$(INSTALL_DATA) $(TARGETLIB) $(DESTDIR)$(tooldir)/lib$(MULTISUBDIR)/$(TARGETLIB)n
++	( cd $(DESTDIR)$(tooldir)/lib$(MULTISUBDIR) ; $(RANLIB) $(TARGETLIB)n )
++	mv -f $(DESTDIR)$(tooldir)/lib$(MULTISUBDIR)/$(TARGETLIB)n $(DESTDIR)$(tooldir)/lib$(MULTISUBDIR)/$(TARGETLIB)
+ 	@$(MULTIDO) $(FLAGS_TO_PASS) multi-do DO=install
  
- # Common prefix for installation directories.  (/usr/local)
- # NOTE: This directory must exist when you start the install.
--prefix = @prefix@
--exec_prefix = @exec_prefix@
-+prefix = $(DESTDIR)/@prefix@
-+exec_prefix = $(DESTDIR)/@exec_prefix@
- 
- # Where to fetch the source from.  (.)
- srcdir = @srcdir@
- VPATH = @srcdir@
- 
- # Where to put the binary.  (${exec_prefix}/bin)
--bindir = @bindir@
-+bindir = $(DESTDIR)/@bindir@
- 
- # Where to put the info file.  (${prefix}/info)
--infodir = @infodir@
-+infodir = $(DESTDIR)/@infodir@
- 
- # Where to put the manual page.  (${prefix}/man)
--mandir  = @mandir@
-+mandir  = $(DESTDIR)/@mandir@
- man1dir = $(mandir)/man1
- man1ext = .1
- 
+ # needed-list is used by libstdc++.  NEEDED is the list of functions
