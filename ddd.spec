@@ -77,7 +77,6 @@ Data Display Debugger - debugger pythona.
 %patch0 -p1
 
 %build
-LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--with-motif
 %{__make} CXXOPT="-DNDEBUG $RPM_OPT_FLAGS"
@@ -97,8 +96,8 @@ install ddd/Ddd $RPM_BUILD_ROOT%{_libdir}/X11/app-defaults
 
 install %{SOURCE1} %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Development
 
-gzip -9nf ANNOUNCE BUGS ChangeLog NEWS* OPENBUGS PROBLEMS README TIPS \
-	TODO $RPM_BUILD_ROOT%{_mandir}/man1/*
+gzip -9nf ANNOUNCE BUGS ChangeLog NEWS* OPENBUGS PROBLEMS README TIPS
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
