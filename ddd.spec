@@ -5,7 +5,7 @@ Summary(pl):	Interfejs X do debuger體 GDB, DBX i XDB
 Summary(zh_CN):	图形化的程序调试器前端;如GDB,DBX,Ladebug,JDB,Perl,Python
 Name:		ddd
 Version:	3.3.7
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Debuggers
 # Temporarily switched to alternate source. FSF lost their checksums;>
@@ -19,6 +19,7 @@ Source3:	http://art.gnome.org/images/icons/other/Debugger.png
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-ptrace.patch
 Patch2:		%{name}-info.patch
+Patch3:		%{name}-home_etc.patch
 URL:		http://www.gnu.org/software/ddd/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
@@ -95,6 +96,7 @@ Data Display Debugger - debugger pythona.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{__libtoolize}
