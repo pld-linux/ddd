@@ -1,16 +1,15 @@
-#%include	/usr/lib/rpm/macros.python
 Summary:	X interface to the GDB, DBX and XDB debuggers
 Summary(ja):	GDB,DBX,Ladebug,JDB,Perl,Pythonのグラフィカルデバッガのフロントエンド
 Summary(pl):	Interfejs X do debuger體 GDB, DBX i XDB
 Summary(zh_CN):	图形化的程序调试器前端;如GDB,DBX,Ladebug,JDB,Perl,Python
 Name:		ddd
-Version:	3.3.9
-Release:	3
+Version:	3.3.10
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Development/Debuggers
 Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
-# Source0-md5:	acfca53c62507795f4ceb355cb34e2a2
+# Source0-md5:	a10a3b55455cce8073cf2f8db01ba1a1
 Source1:	%{name}.desktop
 Source2:	%{name}-python.desktop
 Source3:	http://art.gnome.org/images/icons/other/Debugger.png
@@ -20,8 +19,8 @@ Patch1:		%{name}-info.patch
 Patch2:		%{name}-home_etc.patch
 URL:		http://www.gnu.org/software/ddd/
 BuildRequires:	XFree86-devel
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	autoconf >= 2.59
+BuildRequires:	automake >= 1.9
 BuildRequires:	bison
 BuildRequires:	elfutils-devel
 BuildRequires:	flex
@@ -105,7 +104,8 @@ Data Display Debugger - debugger pythona.
 %{__automake}
 %configure \
 	--with-motif \
-	--with-readline-libraries=%{_libdir}
+	--with-readline \
+	--with-termlib=tinfo
 
 %{__make} \
 	CXXOPT="-DNDEBUG %{rpmcflags}"
