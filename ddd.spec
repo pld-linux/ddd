@@ -5,7 +5,7 @@ Summary(pl):	Interfejs X do debuger體 GDB, DBX i XDB
 Summary(zh_CN):	图形化的程序调试器前端;如GDB,DBX,Ladebug,JDB,Perl,Python
 Name:		ddd
 Version:	3.3.8
-Release:	2
+Release:	333
 License:	GPL
 Group:		Development/Debuggers
 Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
