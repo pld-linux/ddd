@@ -85,7 +85,7 @@ Data Display Debugger - debugger pythona.
 %patch3 -p1
 
 %build
-automake -a -c -f
+%{__automake}
 %configure2_13 \
 	--with-motif
 
