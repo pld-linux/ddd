@@ -1,16 +1,17 @@
 Summary:	X interface to the GDB, DBX and XDB debuggers
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB
 Name:		ddd
-Version:	3.1.6
-Release:	2
-Copyright:	GPL
+Version:	3.2.1
+Release:	1
+License:	GPL
 Group:		Development/Debuggers
 Group(pl):	Programowanie/Odpluskwiacze
-Source0:	ftp://ftp.ips.cs.tu-bs.de/pub/local/softech/ddd/src/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
 Source1:	ddd.desktop
 Source2:	ddd-python.desktop
+Patch0:		ddd-DESTDIR.patch
 Icon:		ddd.xpm
-URL:		http://www.cs.tu-bs.de/softech/ddd/
+URL:		http://www.gnu.org/software/ddd/
 BuildRequires:	XFree86-devel
 BuildRequires:	xpm-devel
 BuildRequires:	lesstif-devel
@@ -23,35 +24,38 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_mandir		%{_prefix}/man
 
 %description
-The Data Display Debugger (DDD) is a common graphical user interface for
-GDB, DBX, and XDB, the popular UNIX debuggers.  Besides ``classical''
-front-end features such as viewing source texts, DDD provides a graphical
-data display, where data structures are displayed as graphs.  A simple mouse
-click dereferences pointers or views structure contents, updated each time
-the program stops.  Using DDD, you can reason about your application by
-viewing its data, not just by viewing it execute lines of source code. 
-Other DDD features include: debugging of programs written in C, C++, Ada,
-Fortran, Java, Pascal, Modula-2, or Modula-3; machine-level debugging;
-hypertext source navigation and lookup; breakpoint, backtrace, and history
-editors; preferences and settings editors; program execution in terminal
-emulator window; debugging on remote host; on-line manual; interactive help
-on the Motif user interface; GDB/DBX/XDB command-line interface with full
-editing, history, search, and completion capabilities.  DDD has been
-designed to compete with well-known commercial debuggers
+The Data Display Debugger (DDD) is a common graphical user interface
+for GDB, DBX, and XDB, the popular UNIX debuggers. Besides
+``classical'' front-end features such as viewing source texts, DDD
+provides a graphical data display, where data structures are displayed
+as graphs. A simple mouse click dereferences pointers or views
+structure contents, updated each time the program stops. Using DDD,
+you can reason about your application by viewing its data, not just by
+viewing it execute lines of source code. Other DDD features include:
+debugging of programs written in C, C++, Ada, Fortran, Java, Pascal,
+Modula-2, or Modula-3; machine-level debugging; hypertext source
+navigation and lookup; breakpoint, backtrace, and history editors;
+preferences and settings editors; program execution in terminal
+emulator window; debugging on remote host; on-line manual; interactive
+help on the Motif user interface; GDB/DBX/XDB command-line interface
+with full editing, history, search, and completion capabilities. DDD
+has been designed to compete with well-known commercial debuggers
 
 %description -l pl
-Data Display Debugger (DDD) jest typowm graficznym interfejsem do
-GDB, DBX, i XDB - popularnych UNIXowych debuggerów. Poza ``klasycznymi''
+Data Display Debugger (DDD) jest typowm graficznym interfejsem do GDB,
+DBX, i XDB - popularnych UNIXowych debuggerów. Poza ``klasycznymi''
 mo¿liwo¶ciami interfejsów graficznych takich jak przegl±danie kodów
-¼ród³owych DDD dostarcza graficznych narzêdzi, gdzie struktury wy¶wietlane
-s± w postaci graficznej. Proste klikniêcie mysz± pozwala na przegl±danie
-zawarto¶ci struktur (aktualizowane za ka¿dym razem gdy program siê zatrzyma).
-Inne mo¿liwo¶ci DDD to: mo¿liwo¶æ debugowania programów napisanych w C, C++,
-Ada, Fortran, Java, Pascal, Modula-2, or Modula-2; debugowanie na poziomie
-maszyny; hypertekstowa nawigacja po ¼ród³ach; breakpoint, backtrace i emulator
-okna historii; mo¿liwo¶æ ustawiania preferencji; uruchamianie programów w oknie
-terminala; debugowanie na zdalnych serwerach; podrêcznik on-line; interaktywna
-pomoc; linia poleceñ GDB/DBX/XDB z pe³n± edycj±, histori± i wyszukiwaniem.
+¼ród³owych DDD dostarcza graficznych narzêdzi, gdzie struktury
+wy¶wietlane s± w postaci graficznej. Proste klikniêcie mysz± pozwala
+na przegl±danie zawarto¶ci struktur (aktualizowane za ka¿dym razem gdy
+program siê zatrzyma). Inne mo¿liwo¶ci DDD to: mo¿liwo¶æ debugowania
+programów napisanych w C, C++, Ada, Fortran, Java, Pascal, Modula-2,
+or Modula-2; debugowanie na poziomie maszyny; hypertekstowa nawigacja
+po ¼ród³ach; breakpoint, backtrace i emulator okna historii; mo¿liwo¶æ
+ustawiania preferencji; uruchamianie programów w oknie terminala;
+debugowanie na zdalnych serwerach; podrêcznik on-line; interaktywna
+pomoc; linia poleceñ GDB/DBX/XDB z pe³n± edycj±, histori± i
+wyszukiwaniem.
 
 %package python
 Summary:	X interface to the GDB, DBX and XDB debuggers - The python debugger
@@ -68,6 +72,7 @@ Data Display Debugger - debugger pythona.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 LDFLAGS="-s"; export LDFLAGS
@@ -77,21 +82,18 @@ make CXXOPT="-DNDEBUG $RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/lib/python1.5 \
+install -d $RPM_BUILD_ROOT%{_libdir}/python1.5 \
 	$RPM_BUILD_ROOT%{_libdir}/X11/app-defaults \
-	$RPM_BUILD_ROOT%{_datadir}/applnk/Development 
+	$RPM_BUILD_ROOT%{_applnkdir}/Development 
 
-make install prefix=$RPM_BUILD_ROOT%{_prefix} \
-	mandir=$RPM_BUILD_ROOT%{_mandir} \
-	bindir=$RPM_BUILD_ROOT%{_bindir} \
-	libdir=$RPM_BUILD_ROOT%{_libdir}
+make DESTDIR=$RPM_BUILD_ROOT install 
 
 install pydb/pydb.py $RPM_BUILD_ROOT%{_bindir}/pydb
-install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT/usr/lib/python1.5
+install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT%{_libdir}/python1.5
 
 install ddd/Ddd $RPM_BUILD_ROOT%{_libdir}/X11/app-defaults
 
-install %{SOURCE1} %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/applnk/Development
+install %{SOURCE1} %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Development
 
 gzip -9nf ANNOUNCE BUGS ChangeLog NEWS* OPENBUGS PROBLEMS README TIPS \
 	TODO $RPM_BUILD_ROOT%{_mandir}/man1/*
@@ -102,13 +104,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {ANNOUNCE,BUGS,ChangeLog,NEWS*,OPENBUGS,PROBLEMS,README,TIPS,TODO}.gz
 %doc doc/sample.dddinit
-%{_datadir}/applnk/Development/ddd.desktop
+%{_applnkdir}/Development/ddd.desktop
 %attr(755,root,root) %{_bindir}/*
 %{_libdir}/X11/app-defaults/Ddd
 %{_mandir}/man1/*
 
 %files python
 %defattr(644,root,root,755)
-%{_datadir}/applnk/Development/ddd-python.desktop
+%{_applnkdir}/Development/ddd-python.desktop
 %attr(755,root,root) %{_bindir}/pydb
-/usr/lib/python*/*
+%{_libdir}/python*/*
