@@ -1,3 +1,6 @@
+
+%define python_sitepkgsdir %(echo `python -c "import sys; print (sys.prefix + '/lib/python' + sys.version[:3] + '/site-packages/')"`)
+
 Summary:	X interface to the GDB, DBX and XDB debuggers
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB
 Name:		ddd
@@ -82,14 +85,14 @@ LDFLAGS="-s"; export LDFLAGS
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_libdir}/python1.5 \
+install -d $RPM_BUILD_ROOT%{python_sitepkgsdir} \
 	$RPM_BUILD_ROOT%{_libdir}/X11/app-defaults \
 	$RPM_BUILD_ROOT%{_applnkdir}/Development 
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT install 
 
 install pydb/pydb.py $RPM_BUILD_ROOT%{_bindir}/pydb
-install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT%{_libdir}/python1.5
+install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT%{python_sitepkgsdir}
 
 install ddd/Ddd $RPM_BUILD_ROOT%{_libdir}/X11/app-defaults
 
@@ -113,4 +116,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_applnkdir}/Development/ddd-python.desktop
 %attr(755,root,root) %{_bindir}/pydb
-%{_libdir}/python*/*
+%{python_sitepkgsdir}/*
