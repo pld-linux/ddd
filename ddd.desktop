@@ -39,6 +39,7 @@ Comment[zh_CN]=数据显示调试器
 Comment[zh_TW]=DDD 除錯器
 Comment[zu]=Idata ibonisa idebugger
 Exec=ddd 
+Icon=ddd.png
 Terminal=0
 Type=Application
 # vi: encoding=utf-8
