@@ -6,7 +6,7 @@
 Summary:	X interface to the GDB, DBX and XDB debuggers
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB
 Name:		ddd
-Version:	3.3
+Version:	3.3.1
 Release:	1
 License:	GPL
 Group:		Development/Debuggers
