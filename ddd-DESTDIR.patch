@@ -1,0 +1,37 @@
+--- ddd-3.2.1/ddd/Makefile.in	Sat Feb 12 00:59:44 2000
++++ ddd-3.2.1.orig/ddd/Makefile.in	Mon May 29 18:15:19 2000
+@@ -26,6 +26,7 @@
+ # `http://www.gnu.org/software/ddd/',
+ # or send a mail to the DDD developers <ddd@gnu.org>.
+ 
++DESTDIR = 
+ 
+ ### CUSTOMIZATION SECTION --- Please check the settings below.
+ # Typical values are enclosed in ().
+@@ -34,21 +35,21 @@
+ 
+ # Common prefix for installation directories.  (/usr/local)
+ # NOTE: This directory must exist when you start the install.
+-prefix = @prefix@
+-exec_prefix = @exec_prefix@
++prefix = $(DESTDIR)/@prefix@
++exec_prefix = $(DESTDIR)/@exec_prefix@
+ 
+ # Where to fetch the source from.  (.)
+ srcdir = @srcdir@
+ VPATH = @srcdir@
+ 
+ # Where to put the binary.  (${exec_prefix}/bin)
+-bindir = @bindir@
++bindir = $(DESTDIR)/@bindir@
+ 
+ # Where to put the info file.  (${prefix}/info)
+-infodir = @infodir@
++infodir = $(DESTDIR)/@infodir@
+ 
+ # Where to put the manual page.  (${prefix}/man)
+-mandir  = @mandir@
++mandir  = $(DESTDIR)/@mandir@
+ man1dir = $(mandir)/man1
+ man1ext = .1
+ 
