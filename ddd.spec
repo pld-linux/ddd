@@ -5,12 +5,13 @@ Summary(pl):	Interfejs X do debuger體 GDB, DBX i XDB
 Summary(zh_CN):	图形化的程序调试器前端;如GDB,DBX,Ladebug,JDB,Perl,Python
 Name:		ddd
 Version:	3.3.1
-Release:	15
+Release:	16
 License:	GPL
 Group:		Development/Debuggers
 Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}-python.desktop
+Source3:	%{name}.png
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-ptrace.patch
 Patch2:		%{name}-info.patch
@@ -27,7 +28,6 @@ BuildRequires:	automake
 BuildRequires:	rpm-pythonprov
 Requires:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
@@ -106,7 +106,7 @@ Data Display Debugger - debugger pythona.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{py_sitedir} \
 	$RPM_BUILD_ROOT%{_libdir}/X11/app-defaults \
-	$RPM_BUILD_ROOT%{_applnkdir}/Development
+	$RPM_BUILD_ROOT{%{_applnkdir}/Development,%{_pixmapsdir}}
 
 %{__make} DESTDIR=$RPM_BUILD_ROOT install
 
@@ -118,6 +118,7 @@ install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT%{py_sitedir}
 install ddd/Ddd $RPM_BUILD_ROOT%{_libdir}/X11/app-defaults
 
 install %{SOURCE1} %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Development
+install %{SOURCE3} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 mv doc/README README.doc
 
@@ -135,6 +136,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc ANNOUNCE AUTHORS *BUGS INSTALL NEWS* PROBLEMS README* TIPS TODO doc/ddd.pdf
 %doc doc/sample.dddinit
 %{_applnkdir}/Development/ddd.desktop
+%{_pixmapsdir}/*
 %attr(755,root,root) %{_bindir}/ddd
 %{_libdir}/X11/app-defaults/Ddd
 %{_mandir}/man1/*
