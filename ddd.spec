@@ -4,13 +4,13 @@ Summary(ja):	GDB,DBX,Ladebug,JDB,Perl,Python¤Î¥°¥é¥Õ¥£¥«¥ë¥Ç¥Ð¥Ã¥¬¤Î¥Õ¥í¥ó¥È¥¨¥ó
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB
 Summary(zh_CN):	Í¼ÐÎ»¯µÄ³ÌÐòµ÷ÊÔÆ÷Ç°¶Ë;ÈçGDB,DBX,Ladebug,JDB,Perl,Python
 Name:		ddd
-Version:	3.3.8
-Release:	334
+Version:	3.3.9
+Release:	1
 Epoch:		1
 License:	GPL
 Group:		Development/Debuggers
 Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
-# Source0-md5:	60c5bfbfe1564926edda629ffcf01e52
+# Source0-md5:	acfca53c62507795f4ceb355cb34e2a2
 Source1:	%{name}.desktop
 Source2:	%{name}-python.desktop
 Source3:	http://art.gnome.org/images/icons/other/Debugger.png
@@ -35,6 +35,8 @@ BuildRequires:	readline-devel
 BuildRequires:	texinfo
 Requires:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_appdefsdir	/usr/X11R6/lib/X11/app-defaults
 
 %description
 The Data Display Debugger (DDD) is a common graphical user interface
@@ -81,7 +83,7 @@ pe³n± edycj±, histori± i wyszukiwaniem.
 Summary:	X interface to the GDB, DBX and XDB debuggers - The python debugger
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB - debugger pythona
 Group:		Development/Debuggers
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 #%pyrequires_eq	python
 
 %description python
@@ -110,9 +112,7 @@ Data Display Debugger - debugger pythona.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{py_sitedir} \
-	$RPM_BUILD_ROOT%{_libdir}/X11/app-defaults \
-	$RPM_BUILD_ROOT{%{_applnkdir}/Development,%{_pixmapsdir}}
+install -d $RPM_BUILD_ROOT{%{_appdefsdir},%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -122,9 +122,10 @@ install -d $RPM_BUILD_ROOT%{py_sitedir} \
 #%py_comp $RPM_BUILD_ROOT%{py_sitedir}
 #%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 
-install ddd/Ddd $RPM_BUILD_ROOT%{_libdir}/X11/app-defaults
+install ddd/Ddd $RPM_BUILD_ROOT%{_appdefsdir}
 
-install %{SOURCE1} %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Development
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+#install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE3} $RPM_BUILD_ROOT%{_pixmapsdir}/ddd.png
 
 %clean
@@ -139,16 +140,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS NEWS README TIPS TODO doc/*.pdf
-%{_applnkdir}/Development/ddd.desktop
-%{_pixmapsdir}/*
 %attr(755,root,root) %{_bindir}/ddd
-%{_libdir}/X11/app-defaults/Ddd
-%{_mandir}/man1/*
 %{_datadir}/ddd*
+%{_appdefsdir}/Ddd
+%{_desktopdir}/ddd.desktop
+%{_pixmapsdir}/*.png
+%{_mandir}/man1/*
 %{_infodir}/ddd*
 
 #%files python
 #%defattr(644,root,root,755)
-#%{_applnkdir}/Development/ddd-python.desktop
 #%attr(755,root,root) %{_bindir}/pydb
 #%{py_sitedir}/*.py?
+#%{_desktopdir}/ddd-python.desktop
