@@ -69,7 +69,7 @@ Summary:	X interface to the GDB, DBX and XDB debuggers - The python debugger
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB - debugger pythona
 Group:		Development/Debuggers
 Requires:	%{name} = %{version}
-%requires_eq	python
+%pyrequires_eq	python
 
 %description python
 Data Display Debugger - python debugger.
