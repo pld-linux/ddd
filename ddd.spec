@@ -2,7 +2,7 @@ Summary:	X interface to the GDB, DBX and XDB debuggers
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB
 Name:		ddd
 Version:	3.1.6
-Release:	1
+Release:	2
 Copyright:	GPL
 Group:		Development/Debuggers
 Group(pl):	Programowanie/Odpluskwiacze
@@ -14,7 +14,7 @@ URL:		http://www.cs.tu-bs.de/softech/ddd/
 BuildRequires:	XFree86-devel
 BuildRequires:	xpm-devel
 BuildRequires:	lesstif-devel
-BuildRequires:	ncurses-devel
+BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	libstdc++-devel
 Requires:	gdb
 Buildroot:	/tmp/%{name}-%{version}-root
