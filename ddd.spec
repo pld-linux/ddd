@@ -9,9 +9,11 @@ Release:	16
 License:	GPL
 Group:		Development/Debuggers
 Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
+# Source0-md5:	38589618d7cd02a03d062bb116bbf1d2
 Source1:	%{name}.desktop
 Source2:	%{name}-python.desktop
 Source3:	http://art.gnome.org/images/icons/other/Debugger.png
+# Source3-md5:	c046d9b0a04abdbb4a2be08a374ac2cd
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-ptrace.patch
 Patch2:		%{name}-info.patch
