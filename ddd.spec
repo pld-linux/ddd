@@ -43,7 +43,7 @@ Data Display Debugger - python debugger.
 
 %build
 CFLAGS="$RPM_OPT_FLAGS" CXXFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s" \
-./configure \
+./configure %{_target} \
 	--with-motif \
 	--prefix=/usr/X11R6
 make CXXOPT="-DNDEBUG $RPM_OPT_FLAGS"
