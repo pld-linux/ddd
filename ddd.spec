@@ -1,15 +1,17 @@
-%include	/usr/lib/rpm/macros.python
+#%include	/usr/lib/rpm/macros.python
 Summary:	X interface to the GDB, DBX and XDB debuggers
 Summary(ja):	GDB,DBX,Ladebug,JDB,Perl,Pythonのグラフィカルデバッガのフロントエンド
 Summary(pl):	Interfejs X do debuger體 GDB, DBX i XDB
 Summary(zh_CN):	图形化的程序调试器前端;如GDB,DBX,Ladebug,JDB,Perl,Python
 Name:		ddd
-Version:	3.3.1
-Release:	17
+Version:	3.3.7
+Release:	1
 License:	GPL
 Group:		Development/Debuggers
-Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
-# Source0-md5:	38589618d7cd02a03d062bb116bbf1d2
+# Temporarily switched to alternate source. FSF lost their checksums;>
+#Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
+Source0:	http://fresh.t-systems-sfr.com/unix/src/misc/%{name}-%{version}.tar.gz
+# Source0-md5:	0b1be54fe5198bb20a5f5250975bd665
 Source1:	%{name}.desktop
 Source2:	%{name}-python.desktop
 Source3:	http://art.gnome.org/images/icons/other/Debugger.png
@@ -17,15 +19,19 @@ Source3:	http://art.gnome.org/images/icons/other/Debugger.png
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-ptrace.patch
 Patch2:		%{name}-info.patch
-Patch3:		%{name}-gcc3.patch
 URL:		http://www.gnu.org/software/ddd/
 BuildRequires:	XFree86-devel
+BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	bison
+BuildRequires:	flex
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
 BuildRequires:	motif-devel
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	python >= 2.2
-BuildRequires:	rpm-pythonprov
+BuildRequires:	readline-devel
+#BuildRequires:	rpm-pythonprov
 BuildRequires:	texinfo
 Requires:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -89,12 +95,13 @@ Data Display Debugger - debugger pythona.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 %build
+%{__libtoolize}
 %{__aclocal}
+%{__autoconf}
 %{__automake}
-%configure2_13 \
+%configure \
 	--with-motif \
 	--with-readline-libraries=%{_libdir}
 
@@ -109,17 +116,15 @@ install -d $RPM_BUILD_ROOT%{py_sitedir} \
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install pydb/pydb.py $RPM_BUILD_ROOT%{_bindir}/pydb
-install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT%{py_sitedir}
-%py_comp $RPM_BUILD_ROOT%{py_sitedir}
-%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
+#install pydb/pydb.py $RPM_BUILD_ROOT%{_bindir}/pydb
+#install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT%{py_sitedir}
+#%py_comp $RPM_BUILD_ROOT%{py_sitedir}
+#%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 
 install ddd/Ddd $RPM_BUILD_ROOT%{_libdir}/X11/app-defaults
 
 install %{SOURCE1} %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Development
 install %{SOURCE3} $RPM_BUILD_ROOT%{_pixmapsdir}/ddd.png
-
-mv doc/README README.doc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -132,8 +137,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc ANNOUNCE AUTHORS *BUGS INSTALL NEWS* PROBLEMS README* TIPS TODO doc/ddd.pdf
-%doc doc/sample.dddinit
+%doc AUTHORS INSTALL NEWS README TIPS TODO doc/*.pdf
 %{_applnkdir}/Development/ddd.desktop
 %{_pixmapsdir}/*
 %attr(755,root,root) %{_bindir}/ddd
@@ -142,8 +146,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/ddd*
 %{_infodir}/ddd*
 
-%files python
-%defattr(644,root,root,755)
-%{_applnkdir}/Development/ddd-python.desktop
-%attr(755,root,root) %{_bindir}/pydb
-%{py_sitedir}/*.py?
+#%files python
+#%defattr(644,root,root,755)
+#%{_applnkdir}/Development/ddd-python.desktop
+#%attr(755,root,root) %{_bindir}/pydb
+#%{py_sitedir}/*.py?
