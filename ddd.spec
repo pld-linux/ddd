@@ -11,9 +11,8 @@ Group:		Development/Debuggers
 Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
 # Source0-md5:	f19437ebfdb5f2667d6de30f700dd319
 Source1:	%{name}.desktop
-Source2:	%{name}-python.desktop
-Source3:	http://art.gnome.org/images/icons/other/Debugger.png
-# Source3-md5:	c046d9b0a04abdbb4a2be08a374ac2cd
+Source2:	http://art.gnome.org/images/icons/other/Debugger.png
+# Source2-md5:	c046d9b0a04abdbb4a2be08a374ac2cd
 Patch0:		%{name}-ptrace.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-home_etc.patch
@@ -29,9 +28,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	motif-devel
 BuildRequires:	ncurses-devel >= 5.0
-BuildRequires:	python >= 2.2
 BuildRequires:	readline-devel
-#BuildRequires:	rpm-pythonprov
 BuildRequires:	texinfo
 Requires:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -79,19 +76,6 @@ programów w oknie terminala; debugowanie na zdalnych serwerach;
 podrêcznik on-line; interaktywna pomoc; linia poleceñ GDB/DBX/XDB z
 pe³n± edycj±, histori± i wyszukiwaniem.
 
-%package python
-Summary:	X interface to the GDB, DBX and XDB debuggers - The python debugger
-Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB - debugger pythona
-Group:		Development/Debuggers
-Requires:	%{name} = %{version}-%{release}
-#%pyrequires_eq	python
-
-%description python
-Data Display Debugger - python debugger.
-
-%description python -l pl
-Data Display Debugger - debugger pythona.
-
 %prep
 %setup -q
 %patch0 -p1
@@ -119,16 +103,10 @@ install -d $RPM_BUILD_ROOT{%{_appdefsdir},%{_desktopdir},%{_pixmapsdir}}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-#install pydb/pydb.py $RPM_BUILD_ROOT%{_bindir}/pydb
-#install pydb/{pydbcmd,pydbsupt}.py $RPM_BUILD_ROOT%{py_sitedir}
-#%py_comp $RPM_BUILD_ROOT%{py_sitedir}
-#%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
-
 install ddd/Ddd $RPM_BUILD_ROOT%{_appdefsdir}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
-#install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
-install %{SOURCE3} $RPM_BUILD_ROOT%{_pixmapsdir}/ddd.png
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/ddd.png
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -149,9 +127,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_pixmapsdir}/*.png
 %{_mandir}/man1/*
 %{_infodir}/ddd*
-
-#%files python
-#%defattr(644,root,root,755)
-#%attr(755,root,root) %{_bindir}/pydb
-#%{py_sitedir}/*.py?
-#%{_desktopdir}/ddd-python.desktop
