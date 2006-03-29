@@ -1,15 +1,18 @@
+#
+%define		_test	test5
+#
 Summary:	X interface to the GDB, DBX and XDB debuggers
 Summary(ja):	GDB,DBX,Ladebug,JDB,Perl,Python¤Î¥°¥é¥Õ¥£¥«¥ë¥Ç¥Ð¥Ã¥¬¤Î¥Õ¥í¥ó¥È¥¨¥ó¥É
 Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB
 Summary(zh_CN):	Í¼ÐÎ»¯µÄ³ÌÐòµ÷ÊÔÆ÷Ç°¶Ë;ÈçGDB,DBX,Ladebug,JDB,Perl,Python
 Name:		ddd
-Version:	3.3.11
-Release:	2
+Version:	3.3.12
+Release:	0.%{_test}.1
 Epoch:		1
 License:	GPL
 Group:		Development/Debuggers
-Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
-# Source0-md5:	f19437ebfdb5f2667d6de30f700dd319
+Source0:	http://dl.sourceforge.net/sourceforge/bashdb//%{name}-%{version}-%{_test}.tar.gz
+# Source0-md5:	005104ad50c3a8f6dc4b25b91c031b84
 Source1:	%{name}.desktop
 Source2:	http://art.gnome.org/images/icons/other/Debugger.png
 # Source2-md5:	c046d9b0a04abdbb4a2be08a374ac2cd
@@ -77,7 +80,7 @@ podrêcznik on-line; interaktywna pomoc; linia poleceñ GDB/DBX/XDB z
 pe³n± edycj±, histori± i wyszukiwaniem.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-%{_test}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
