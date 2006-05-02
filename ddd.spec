@@ -4,7 +4,7 @@ Summary(pl):	Interfejs X do debuger體 GDB, DBX i XDB
 Summary(zh_CN):	图形化的程序调试器前端;如GDB,DBX,Ladebug,JDB,Perl,Python
 Name:		ddd
 Version:	3.3.11
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL
 Group:		Development/Debuggers
@@ -18,7 +18,6 @@ Patch1:		%{name}-info.patch
 Patch2:		%{name}-home_etc.patch
 Patch3:		%{name}-am185.patch
 URL:		http://www.gnu.org/software/ddd/
-BuildRequires:	XFree86-devel
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	bison
@@ -29,11 +28,15 @@ BuildRequires:	libtool
 BuildRequires:	motif-devel
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	readline-devel
+BuildRequires:	xorg-lib-libXmu-devel
+BuildRequires:	xorg-lib-libXpm-devel
 BuildRequires:	texinfo
 Requires:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_appdefsdir	/usr/X11R6/lib/X11/app-defaults
+
+%define		specflags	-fno-strict-aliasing
 
 %description
 The Data Display Debugger (DDD) is a common graphical user interface
