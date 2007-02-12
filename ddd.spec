@@ -1,7 +1,7 @@
 Summary:	X interface to the GDB, DBX and XDB debuggers
-Summary(ja.UTF-8):   GDB,DBX,Ladebug,JDB,Perl,Pythonのグラフィカルデバッガのフロントエンド
-Summary(pl.UTF-8):   Interfejs X do debugerów GDB, DBX i XDB
-Summary(zh_CN.UTF-8):   图形化的程序调试器前端;如GDB,DBX,Ladebug,JDB,Perl,Python
+Summary(ja.UTF-8):	GDB,DBX,Ladebug,JDB,Perl,Pythonのグラフィカルデバッガのフロントエンド
+Summary(pl.UTF-8):	Interfejs X do debugerów GDB, DBX i XDB
+Summary(zh_CN.UTF-8):	图形化的程序调试器前端;如GDB,DBX,Ladebug,JDB,Perl,Python
 Name:		ddd
 Version:	3.3.11
 Release:	4
