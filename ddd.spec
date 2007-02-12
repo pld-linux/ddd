@@ -2,9 +2,9 @@
 %define		_test	test5
 #
 Summary:	X interface to the GDB, DBX and XDB debuggers
-Summary(ja):	GDB,DBX,Ladebug,JDB,Perl,Python¤Î¥°¥é¥Õ¥£¥«¥ë¥Ç¥Ğ¥Ã¥¬¤Î¥Õ¥í¥ó¥È¥¨¥ó¥É
-Summary(pl):	Interfejs X do debugerów GDB, DBX i XDB
-Summary(zh_CN):	Í¼ĞÎ»¯µÄ³ÌĞòµ÷ÊÔÆ÷Ç°¶Ë;ÈçGDB,DBX,Ladebug,JDB,Perl,Python
+Summary(ja.UTF-8):   GDB,DBX,Ladebug,JDB,Perl,Pythonã®ã‚°ãƒ©ãƒ•ã‚£ã‚«ãƒ«ãƒ‡ãƒãƒƒã‚¬ã®ãƒ•ãƒ­ãƒ³ãƒˆã‚¨ãƒ³ãƒ‰
+Summary(pl.UTF-8):   Interfejs X do debugerÃ³w GDB, DBX i XDB
+Summary(zh_CN.UTF-8):   å›¾å½¢åŒ–çš„ç¨‹åºè°ƒè¯•å™¨å‰ç«¯;å¦‚GDB,DBX,Ladebug,JDB,Perl,Python
 Name:		ddd
 Version:	3.3.12
 Release:	0.%{_test}.1
@@ -56,28 +56,28 @@ help on the Motif user interface; GDB/DBX/XDB command-line interface
 with full editing, history, search, and completion capabilities. DDD
 has been designed to compete with well-known commercial debuggers
 
-%description -l ja
-DDD¤Ï¡¢GDB,DBX,WDB,Ladebug,JDB,XDB,Perl¥Ç¥Ğ¥Ã¥¬¡¢¤Ş¤¿¤ÏPython¥Ç¥Ğ¥Ã¥¬
-¤Î¤è¤¦¤Ê¥³¥Ş¥ó¥É¥é¥¤¥ó·¿¥Ç¥Ğ¥Ã¥¬¤ò¥°¥é¥Õ¥£¥«¥ë·¿¤Î¥Ç¥Ğ¥Ã¥¬¤ËÊÑ¿È¤µ¤»¤ë
-¥Õ¥í¥ó¥È¥¨¥ó¥É¤Ç¤¹¡£¥½¡¼¥¹¥³¡¼¥É¤Î»²¾ÈÅù¤Î¤è¤¦¤Ê"ÄÌ¾ï"¤Î¥Õ¥í¥ó¥È¥¨¥ó¥É
-¤Îµ¡Ç½¤Î¤ß¤Ê¤é¤º¡¢DDD¤Ï¥Ç¡¼¥¿¹½Â¤¤ò¥°¥é¥Õ¤È¤·¤ÆÉ½¼¨¤¹¤ë¡¢²ñÏÃ¼°¥°¥é¥Õ
-¥£¥«¥ë¥Ç¡¼¥¿É½¼¨¤¹¤ë¤³¤È¤ÇÍ­Ì¾¤Ë¤Ê¤ê¤Ş¤·¤¿¡£
+%description -l ja.UTF-8
+DDDã¯ã€GDB,DBX,WDB,Ladebug,JDB,XDB,Perlãƒ‡ãƒãƒƒã‚¬ã€ã¾ãŸã¯Pythonãƒ‡ãƒãƒƒã‚¬
+ã®ã‚ˆã†ãªã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³å‹ãƒ‡ãƒãƒƒã‚¬ã‚’ã‚°ãƒ©ãƒ•ã‚£ã‚«ãƒ«å‹ã®ãƒ‡ãƒãƒƒã‚¬ã«å¤‰èº«ã•ã›ã‚‹
+ãƒ•ãƒ­ãƒ³ãƒˆã‚¨ãƒ³ãƒ‰ã§ã™ã€‚ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å‚ç…§ç­‰ã®ã‚ˆã†ãª"é€šå¸¸"ã®ãƒ•ãƒ­ãƒ³ãƒˆã‚¨ãƒ³ãƒ‰
+ã®æ©Ÿèƒ½ã®ã¿ãªã‚‰ãšã€DDDã¯ãƒ‡ãƒ¼ã‚¿æ§‹é€ ã‚’ã‚°ãƒ©ãƒ•ã¨ã—ã¦è¡¨ç¤ºã™ã‚‹ã€ä¼šè©±å¼ã‚°ãƒ©ãƒ•
+ã‚£ã‚«ãƒ«ãƒ‡ãƒ¼ã‚¿è¡¨ç¤ºã™ã‚‹ã“ã¨ã§æœ‰åã«ãªã‚Šã¾ã—ãŸã€‚
 
-%description -l pl
+%description -l pl.UTF-8
 Data Display Debugger (DDD) jest typowym graficznym interfejsem do
-GDB, DBX, i XDB - popularnych UNIXowych debuggerów. Poza
-``klasycznymi'' mo¿liwo¶ciami interfejsów graficznych takich jak
-przegl±danie kodów ¼ród³owych DDD dostarcza graficznych narzêdzi,
-gdzie struktury wy¶wietlane s± w postaci graficznej. Proste klikniêcie
-mysz± pozwala na przegl±danie zawarto¶ci struktur (aktualizowane za
-ka¿dym razem gdy program siê zatrzyma). Inne mo¿liwo¶ci DDD to:
-mo¿liwo¶æ debugowania programów napisanych w C, C++, Ada, Fortran,
+GDB, DBX, i XDB - popularnych UNIXowych debuggerÃ³w. Poza
+``klasycznymi'' moÅ¼liwoÅ›ciami interfejsÃ³w graficznych takich jak
+przeglÄ…danie kodÃ³w ÅºrÃ³dÅ‚owych DDD dostarcza graficznych narzÄ™dzi,
+gdzie struktury wyÅ›wietlane sÄ… w postaci graficznej. Proste klikniÄ™cie
+myszÄ… pozwala na przeglÄ…danie zawartoÅ›ci struktur (aktualizowane za
+kaÅ¼dym razem gdy program siÄ™ zatrzyma). Inne moÅ¼liwoÅ›ci DDD to:
+moÅ¼liwoÅ›Ä‡ debugowania programÃ³w napisanych w C, C++, Ada, Fortran,
 Java, Pascal, Modula-2, or Modula-2; debugowanie na poziomie maszyny;
-hypertekstowa nawigacja po ¼ród³ach; breakpoint, backtrace i emulator
-okna historii; mo¿liwo¶æ ustawiania preferencji; uruchamianie
-programów w oknie terminala; debugowanie na zdalnych serwerach;
-podrêcznik on-line; interaktywna pomoc; linia poleceñ GDB/DBX/XDB z
-pe³n± edycj±, histori± i wyszukiwaniem.
+hypertekstowa nawigacja po ÅºrÃ³dÅ‚ach; breakpoint, backtrace i emulator
+okna historii; moÅ¼liwoÅ›Ä‡ ustawiania preferencji; uruchamianie
+programÃ³w w oknie terminala; debugowanie na zdalnych serwerach;
+podrÄ™cznik on-line; interaktywna pomoc; linia poleceÅ„ GDB/DBX/XDB z
+peÅ‚nÄ… edycjÄ…, historiÄ… i wyszukiwaniem.
 
 %prep
 %setup -q -n %{name}-%{version}-%{_test}
