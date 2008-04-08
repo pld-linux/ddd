@@ -8,7 +8,7 @@ Release:	6
 Epoch:		1
 License:	GPL
 Group:		Development/Debuggers
-Source0:	ftp://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
+Source0:	http://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
 # Source0-md5:	f19437ebfdb5f2667d6de30f700dd319
 Source1:	%{name}.desktop
 Source2:	http://art.gnome.org/images/icons/other/Debugger.png
