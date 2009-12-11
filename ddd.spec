@@ -3,13 +3,13 @@ Summary(ja.UTF-8):	GDB,DBX,Ladebug,JDB,Perl,Pythonのグラフィカルデバッ
 Summary(pl.UTF-8):	Interfejs X do debugerów GDB, DBX i XDB
 Summary(zh_CN.UTF-8):	图形化的程序调试器前端;如GDB,DBX,Ladebug,JDB,Perl,Python
 Name:		ddd
-Version:	3.3.11
+Version:	3.3.12
 Release:	8
 Epoch:		1
 License:	GPL
 Group:		Development/Debuggers
 Source0:	http://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
-# Source0-md5:	f19437ebfdb5f2667d6de30f700dd319
+# Source0-md5:	c50396db7bac3862a6d2555b3b22c34e
 Source1:	%{name}.desktop
 Source2:	http://art.gnome.org/images/icons/other/Debugger.png
 # Source2-md5:	c046d9b0a04abdbb4a2be08a374ac2cd
@@ -17,6 +17,7 @@ Patch0:		%{name}-ptrace.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-home_etc.patch
 Patch3:		%{name}-am185.patch
+Patch4:		%{name}-gcc.4.4-build.patch
 URL:		http://www.gnu.org/software/ddd/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
@@ -86,6 +87,7 @@ pełną edycją, historią i wyszukiwaniem.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 %{__libtoolize}
