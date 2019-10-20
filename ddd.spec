@@ -4,7 +4,7 @@ Summary(pl.UTF-8):	Interfejs X do debugerów GDB, DBX i XDB
 Summary(zh_CN.UTF-8):	图形化的程序调试器前端;如GDB,DBX,Ladebug,JDB,Perl,Python
 Name:		ddd
 Version:	3.3.12
-Release:	14
+Release:	15
 Epoch:		1
 License:	GPL
 Group:		Development/Debuggers
@@ -18,6 +18,7 @@ Patch1:		%{name}-info.patch
 Patch2:		%{name}-home_etc.patch
 Patch3:		%{name}-am185.patch
 Patch4:		%{name}-gcc.4.4-build.patch
+Patch5:		fix-ftbfs-gcc-9.patch
 URL:		http://www.gnu.org/software/ddd/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
@@ -88,6 +89,7 @@ pełną edycją, historią i wyszukiwaniem.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 %{__libtoolize}
