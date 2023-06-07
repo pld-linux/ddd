@@ -1,11 +1,10 @@
-diff -urN ddd-3.3.7.orig/ddd/ddd.texi ddd-3.3.7/ddd/ddd.texi
---- ddd-3.3.7.orig/ddd/ddd.texi	2003-05-24 17:27:08.000000000 +0200
-+++ ddd-3.3.7/ddd/ddd.texi	2003-08-26 18:49:03.000000000 +0200
-@@ -96,9 +96,9 @@
+--- ddd-3.4.0/ddd/ddd.texi.orig	2023-06-07 20:54:36.189527766 +0200
++++ ddd-3.4.0/ddd/ddd.texi	2023-06-07 21:11:29.797369915 +0200
+@@ -97,9 +97,9 @@
  @finalout
  
  @c Info Dir settings
--@dircategory Programming & development tools.
+-@dircategory Programming \& development tools.
 +@dircategory Programming tools:
  @direntry
 -* DDD: (ddd).                     The Data Display Debugger.
@@ -28,37 +27,3 @@ diff -urN ddd-3.3.7.orig/ddd/ddd-themes.texi ddd-3.3.7/ddd/ddd-themes.texi
  @end direntry
  @c %**end of header
  
---- a/ddd/ddd.texi.orig	2009-02-11 17:25:07 +0000
-+++ b/ddd/ddd.texi
-@@ -1,4 +1,4 @@
--\def\postscript{}\input texinfo @c -*- texinfo -*-
-+\def\postscript\input texinfo @c -*- texinfo -*-
- @c $Id$
- @c DDD Manual
- 
-@@ -154,7 +154,7 @@
- @c The title page.
- @ifnothtml
- @titlepage
--@sp -7
-+@sp 7
- @ifnottex
- @title Debugging with @value{DDD}
- @subtitle User's Guide and Reference Manual
---- a/ddd/ddd-themes.texi.orig	2009-02-11 17:25:07 +0000
-+++ b/ddd/ddd-themes.texi
-@@ -1,4 +1,4 @@
--\def\postscript{}\input texinfo @c -*- texinfo -*-
-+\def\postscript\input texinfo @c -*- texinfo -*-
- @c $Id$
- @c Writing DDD Themes
- 
-@@ -136,7 +136,7 @@
- @c The title page.
- @ifnothtml
- @titlepage
--@sp -7
-+@sp 7
- @ifnottex
- @title Writing @value{DDD} Themes
- @subtitle User's Guide and Reference Manual

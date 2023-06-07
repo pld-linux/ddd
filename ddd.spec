@@ -3,35 +3,38 @@ Summary(ja.UTF-8):	GDB,DBX,Ladebug,JDB,Perl,Pythonのグラフィカルデバッ
 Summary(pl.UTF-8):	Interfejs X do debugerów GDB, DBX i XDB
 Summary(zh_CN.UTF-8):	图形化的程序调试器前端;如GDB,DBX,Ladebug,JDB,Perl,Python
 Name:		ddd
-Version:	3.3.12
-Release:	15
+Version:	3.4.0
+Release:	1
 Epoch:		1
-License:	GPL
+License:	GPL v3+
 Group:		Development/Debuggers
-Source0:	http://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
-# Source0-md5:	c50396db7bac3862a6d2555b3b22c34e
+Source0:	https://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
+# Source0-md5:	23fc7448a189908c945fe2ba7fd3a53a
 Source1:	%{name}.desktop
-Source2:	http://art.gnome.org/images/icons/other/Debugger.png
+# originally http://art.gnome.org/images/icons/other/Debugger.png
+Source2:	Debugger.png
 # Source2-md5:	c046d9b0a04abdbb4a2be08a374ac2cd
 Patch0:		%{name}-ptrace.patch
 Patch1:		%{name}-info.patch
 Patch2:		%{name}-home_etc.patch
-Patch3:		%{name}-am185.patch
-Patch4:		%{name}-gcc.4.4-build.patch
-Patch5:		fix-ftbfs-gcc-9.patch
 URL:		http://www.gnu.org/software/ddd/
-BuildRequires:	autoconf >= 2.59
+BuildRequires:	autoconf >= 2.71
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	bison
+BuildRequires:	bison >= 1.28
 BuildRequires:	elfutils-devel
 BuildRequires:	flex
+BuildRequires:	gnulib
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2
 BuildRequires:	motif-devel
 BuildRequires:	ncurses-devel >= 5.0
 BuildRequires:	readline-devel
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXaw-devel
+BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXmu-devel
 BuildRequires:	xorg-lib-libXpm-devel
+BuildRequires:	xorg-lib-libXt-devel
 BuildRequires:	texinfo
 Requires:	gdb
 Requires:	xorg-lib-libXt >= 1.0.0
@@ -87,9 +90,8 @@ pełną edycją, historią i wyszukiwaniem.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
+
+ln -sf %{_datadir}/gnulib/doc/fdl-1.3.texi ddd/fdl-1.3.texi
 
 %build
 %{__libtoolize}
@@ -111,27 +113,28 @@ install -d $RPM_BUILD_ROOT{%{_appdefsdir},%{_desktopdir},%{_pixmapsdir}}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install ddd/Ddd $RPM_BUILD_ROOT%{_appdefsdir}
+cp -p ddd/Ddd $RPM_BUILD_ROOT%{_appdefsdir}
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/ddd.png
+cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+cp -p %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/ddd.png
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p	/sbin/postshell
+%post	-p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun	-p	/sbin/postshell
+%postun	-p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README TIPS TODO doc/*.pdf
+%doc AUTHORS CREDITS NEWS README TIPS doc/*.pdf
 %attr(755,root,root) %{_bindir}/ddd
-%{_datadir}/ddd*
+%{_datadir}/ddd-%{version}
 %{_appdefsdir}/Ddd
 %{_desktopdir}/ddd.desktop
-%{_pixmapsdir}/*.png
-%{_mandir}/man1/*
-%{_infodir}/ddd*
+%{_pixmapsdir}/ddd.png
+%{_mandir}/man1/ddd.1*
+%{_infodir}/ddd.info*
+%{_infodir}/ddd-themes.info*
