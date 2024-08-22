@@ -3,13 +3,13 @@ Summary(ja.UTF-8):	GDB,DBX,Ladebug,JDB,Perl,Pythonのグラフィカルデバッ
 Summary(pl.UTF-8):	Interfejs X do debugerów GDB, DBX i XDB
 Summary(zh_CN.UTF-8):	图形化的程序调试器前端;如GDB,DBX,Ladebug,JDB,Perl,Python
 Name:		ddd
-Version:	3.4.0
+Version:	3.4.1
 Release:	1
 Epoch:		1
 License:	GPL v3+
 Group:		Development/Debuggers
 Source0:	https://ftp.gnu.org/gnu/ddd/%{name}-%{version}.tar.gz
-# Source0-md5:	23fc7448a189908c945fe2ba7fd3a53a
+# Source0-md5:	99ebcd5ad29d25e198e89209e8d7104e
 Source1:	%{name}.desktop
 # originally http://art.gnome.org/images/icons/other/Debugger.png
 Source2:	Debugger.png
@@ -23,6 +23,7 @@ BuildRequires:	automake >= 1:1.9
 BuildRequires:	bison >= 1.28
 BuildRequires:	elfutils-devel
 BuildRequires:	flex
+BuildRequires:	freetype-devel >= 2.0
 BuildRequires:	gnulib
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:2
@@ -32,6 +33,7 @@ BuildRequires:	readline-devel
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	xorg-lib-libXaw-devel
 BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXft-devel
 BuildRequires:	xorg-lib-libXmu-devel
 BuildRequires:	xorg-lib-libXpm-devel
 BuildRequires:	xorg-lib-libXt-devel
@@ -39,8 +41,6 @@ BuildRequires:	texinfo
 Requires:	gdb
 Requires:	xorg-lib-libXt >= 1.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_appdefsdir	%{_datadir}/X11/app-defaults
 
 %define		specflags	-fno-strict-aliasing
 
@@ -108,15 +108,17 @@ ln -sf %{_datadir}/gnulib/doc/fdl-1.3.texi ddd/fdl-1.3.texi
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_appdefsdir},%{_desktopdir},%{_pixmapsdir}}
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-cp -p ddd/Ddd $RPM_BUILD_ROOT%{_appdefsdir}
-
 cp -p %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 cp -p %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/ddd.png
+
+%{__mv} $RPM_BUILD_ROOT%{_datadir}/ddd-%{version}/info $RPM_BUILD_ROOT%{_infodir}
+# packaged as %doc
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/ddd-%{version}/doc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -129,10 +131,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS CREDITS NEWS README TIPS doc/*.pdf
+%doc README doc/{ANNOUNCE,AUTHORS,CREDITS,FONTS,NEWS,NEWS-OLD,NICKNAMES,TIPS,*.pdf}
 %attr(755,root,root) %{_bindir}/ddd
 %{_datadir}/ddd-%{version}
-%{_appdefsdir}/Ddd
 %{_desktopdir}/ddd.desktop
 %{_pixmapsdir}/ddd.png
 %{_mandir}/man1/ddd.1*
