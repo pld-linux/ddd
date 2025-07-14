@@ -87,9 +87,9 @@ pełną edycją, historią i wyszukiwaniem.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
 
 ln -sf %{_datadir}/gnulib/doc/fdl-1.3.texi ddd/fdl-1.3.texi
 
